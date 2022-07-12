@@ -5,7 +5,9 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  margin: 40px 20%;
+  margin: 40px 37%;
+  padding: 2em 2em;
+  background-color: black;
 }
 
 .screen {
@@ -16,13 +18,28 @@ body {
 
 .keys {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1em 2em;
+  padding: 2em 16px 0em;
+}
+
+.keys>div {
+  display: flex;
+  flex: 1 1 auto;
+  gap: 2em;
 }
 
 [class^='key-'] {
-  flex: 1 0 25%;
+  flex: 1 0 15%;
+  font-size: 20px;
+}
+
+
+button {
+  border-radius: 30px;
+  height: 50px;
 }
 
 .key-zero {
-  flex-basis: 50%
+  flex-basis: 42%;
 }
