@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(13, 12, 12);
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 20%;
+}
+
+.screen {
+  height: 250px;
+  width: 100%;
+  background-color: rgb(36, 34, 34);
+}
+
+.keys {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[class^='key-'] {
+  flex: 1 0 25%;
+}
+
+.key-zero {
+  flex-basis: 50%
+}
