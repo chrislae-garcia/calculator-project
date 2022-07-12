@@ -19,7 +19,7 @@ body {
 .keys {
   display: flex;
   flex-direction: column;
-  gap: 1em 2em;
+  gap: 2em 2em;
   padding: 2em 16px 0em;
 }
 
