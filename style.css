@@ -19,6 +19,11 @@ body {
   align-items: flex-end;
 }
 
+.display {
+  color: #d8d7d7;
+  font-size: 36px;
+}
+
 .keys {
   display: flex;
   flex-direction: column;
