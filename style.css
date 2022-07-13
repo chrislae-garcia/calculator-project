@@ -8,7 +8,8 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  margin: 40px 37%;
+  width: 400px;
+  margin: 40px 30;
   padding: 2em 2em;
   background-color: black;
 }
