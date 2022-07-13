@@ -30,7 +30,7 @@ function operate(operator, a, b) {
   }
 }
 
-let firstNum = 0;
+let firstNum = 0, secondNum = 0;
 let screenText = "";
 let hasDecimal = false;
 const validInput = ['0', '1', '2', '3', '4', '5', 
@@ -55,12 +55,12 @@ function setFirstNum(operator, screenText) {
   
   let lastChar = screenText.substring(screenText.length-1);
 
-  if (lastChar != '.') {
-    if (!firstNum) {    
+  if (!firstNum) {    
+    if (lastChar != '.') {
       firstNum = parseInt(screenText.slice(0,-1));
       console.log(firstNum);
-    }   
-  }
+    }
+  } 
 }
 
 function setButtonEvents(e) {
