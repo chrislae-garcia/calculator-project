@@ -27,3 +27,8 @@ function operate(operator, a, b) {
       return division(a, b);
   }
 }
+
+window.addEventListener('click', (e) => {
+  if(e.target.localName != 'button') return;
+  console.log(e.target.textContent);
+});
