@@ -31,14 +31,20 @@ function operate(operator, a, b) {
 }
 
 let screenText = "";
+const validInput = ['0', '1', '2', '3', '4', '5', 
+                    '6', '7', '8', '9', '.', 
+                    '+', '-', 'x', '÷'];
+
 function setOnScreen(selectedButton) {
-  screenText+=selectedButton;
-  console.log(divDisplay);
+  console.log(screenText);
+  if (validInput.includes(selectedButton)) {
+    screenText += selectedButton;
+  }
   divDisplay.textContent = screenText.toString();
 }
 
 window.addEventListener('click', (e) => {
-  if(e.target.localName != 'button') return;
+  if (e.target.localName != 'button') return;
   selectedButton = e.target.textContent;
   setOnScreen(selectedButton);
 });
