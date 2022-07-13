@@ -39,7 +39,6 @@ const validInput = ['0', '1', '2', '3', '4', '5',
 const operators = ['+', '-', 'x', '÷'];
 
 function setOnScreen(selectedButton) {
-  console.log(screenText);
 
   if (selectedButton == '.' && hasDecimal){
     return;
@@ -54,9 +53,13 @@ function setOnScreen(selectedButton) {
 
 function setFirstNum(operator, screenText) {
   
-  if (!firstNum) {    
-    firstNum = parseInt(screenText);
-    console.log(firstNum);
+  let lastChar = screenText.substring(screenText.length-1);
+
+  if (lastChar != '.') {
+    if (!firstNum) {    
+      firstNum = parseInt(screenText.slice(0,-1));
+      console.log(firstNum);
+    }   
   }
 }
 
