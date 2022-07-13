@@ -31,6 +31,7 @@ function operate(operator, a, b) {
 }
 
 let screenText = "";
+let hasDecimal = false;
 const validInput = ['0', '1', '2', '3', '4', '5', 
                     '6', '7', '8', '9', '.'];
 
@@ -39,9 +40,15 @@ const operators = ['+', '-', 'x', '÷'];
 function setOnScreen(selectedButton) {
   console.log(screenText);
 
-  screenText += selectedButton;
-  divDisplay.textContent = screenText.toString();
-
+  if (selectedButton == '.' && hasDecimal){
+    return;
+  } else if (selectedButton == '.' && !hasDecimal) {
+    hasDecimal = true;
+    screenText += selectedButton;
+  } else {
+    screenText += selectedButton;
+  }
+  divDisplay.textContent = screenText.toString();  
 }
 
 function setButtonEvents(e) {
