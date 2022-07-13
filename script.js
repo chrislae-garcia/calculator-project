@@ -32,15 +32,14 @@ function operate(operator, a, b) {
 
 let screenText = "";
 const validInput = ['0', '1', '2', '3', '4', '5', 
-                    '6', '7', '8', '9', '.', 
-                    '+', '-', 'x', '÷'];
+                    '6', '7', '8', '9', '.'];
 
 function setOnScreen(selectedButton) {
   console.log(screenText);
   if (validInput.includes(selectedButton)) {
     screenText += selectedButton;
+    divDisplay.textContent = screenText.toString();
   }
-  divDisplay.textContent = screenText.toString();
 }
 
 window.addEventListener('click', (e) => {
