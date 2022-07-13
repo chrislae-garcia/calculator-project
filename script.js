@@ -38,10 +38,10 @@ const operators = ['+', '-', 'x', '÷'];
 
 function setOnScreen(selectedButton) {
   console.log(screenText);
-  if (validInput.includes(selectedButton)) {
-    screenText += selectedButton;
-    divDisplay.textContent = screenText.toString();
-  }
+
+  screenText += selectedButton;
+  divDisplay.textContent = screenText.toString();
+
 }
 
 function setButtonEvents(e) {
@@ -51,6 +51,7 @@ function setButtonEvents(e) {
   switch (true) {
     case validInput.includes(selectedButton):
       console.log('Digits and Decimal');
+      setOnScreen(selectedButton);
       break;
     case selectedButton == 'C':
       console.log('Clear');
@@ -65,7 +66,7 @@ function setButtonEvents(e) {
       console.log(`Operator ${selectedButton}`);
       break;
     default:
-    console.log('nope');
+      console.log('nope');
   }
 
 }
