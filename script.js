@@ -30,6 +30,7 @@ function operate(operator, a, b) {
   }
 }
 
+let firstNum = 0;
 let screenText = "";
 let hasDecimal = false;
 const validInput = ['0', '1', '2', '3', '4', '5', 
@@ -49,6 +50,14 @@ function setOnScreen(selectedButton) {
     screenText += selectedButton;
   }
   divDisplay.textContent = screenText.toString();  
+}
+
+function setFirstNum(operator, screenText) {
+  
+  if (!firstNum) {    
+    firstNum = parseInt(screenText);
+    console.log(firstNum);
+  }
 }
 
 function setButtonEvents(e) {
@@ -71,6 +80,7 @@ function setButtonEvents(e) {
       break;
     case operators.includes(selectedButton):
       console.log(`Operator ${selectedButton}`);
+      setFirstNum(selectedButton, screenText);
       break;
     default:
       console.log('nope');
