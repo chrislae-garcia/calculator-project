@@ -1,3 +1,5 @@
+const divDisplay = document.querySelector('.display');
+
 function addition(a, b) {
   return a + b;
 }
@@ -28,7 +30,15 @@ function operate(operator, a, b) {
   }
 }
 
+let screenText = "";
+function setOnScreen(selectedButton) {
+  screenText+=selectedButton;
+  console.log(divDisplay);
+  divDisplay.textContent = screenText.toString();
+}
+
 window.addEventListener('click', (e) => {
   if(e.target.localName != 'button') return;
-  console.log(e.target.textContent);
+  selectedButton = e.target.textContent;
+  setOnScreen(selectedButton);
 });
