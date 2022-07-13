@@ -34,6 +34,8 @@ let screenText = "";
 const validInput = ['0', '1', '2', '3', '4', '5', 
                     '6', '7', '8', '9', '.'];
 
+const operators = ['+', '-', 'x', '÷'];
+
 function setOnScreen(selectedButton) {
   console.log(screenText);
   if (validInput.includes(selectedButton)) {
@@ -42,8 +44,30 @@ function setOnScreen(selectedButton) {
   }
 }
 
-window.addEventListener('click', (e) => {
+function setButtonEvents(e) {
   if (e.target.localName != 'button') return;
   selectedButton = e.target.textContent;
-  setOnScreen(selectedButton);
-});
+
+  switch (true) {
+    case validInput.includes(selectedButton):
+      console.log('Digits and Decimal');
+      break;
+    case selectedButton == 'C':
+      console.log('Clear');
+      break;
+    case selectedButton == 'CA':
+      console.log('Clear All');
+      break;
+    case selectedButton == '%':
+      console.log('Percentage');
+      break;
+    case operators.includes(selectedButton):
+      console.log(`Operator ${selectedButton}`);
+      break;
+    default:
+    console.log('nope');
+  }
+
+}
+
+window.addEventListener('click', setButtonEvents);
