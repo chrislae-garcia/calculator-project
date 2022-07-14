@@ -59,6 +59,8 @@ let lastOperator = '';
 
 function storeNumbers(operator, number) {
   
+  if (!number) return;
+
   if (!numberStorage[0]) {
     numberStorage[0] = number;
     lastOperator = operator;  
@@ -103,6 +105,9 @@ function setButtonEvents(e) {
     case operators.includes(selectedButton):
       console.log(`Operator ${selectedButton}`);
       storeNumbers(selectedButton, screenText);
+      break;
+    case selectedButton == '=':
+      storeNumbers(lastOperator, screenText);
       break;
     default:
       console.log('nope');
