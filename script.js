@@ -51,7 +51,7 @@ function setOnScreen(selectedButton) {
   divDisplay.textContent = screenText.toString();  
 }
 
-function setFirstNum(operator, screenText) {
+function storeNumbers(operator, screenText) {
   
   let lastChar = screenText.substring(screenText.length-1);
 
@@ -60,7 +60,7 @@ function setFirstNum(operator, screenText) {
       firstNum = parseInt(screenText.slice(0,-1));
       console.log(firstNum);
     }
-  } 
+  }
 }
 
 function setButtonEvents(e) {
@@ -83,7 +83,7 @@ function setButtonEvents(e) {
       break;
     case operators.includes(selectedButton):
       console.log(`Operator ${selectedButton}`);
-      setFirstNum(selectedButton, screenText);
+      storeNumbers(selectedButton, screenText);
       break;
     default:
       console.log('nope');
