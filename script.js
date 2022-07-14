@@ -67,6 +67,19 @@ function storeNumbers(operator, number) {
     numberStorage[1] = number;
   }
 
+  if (numberStorage.length == 2) {
+    firstNumber = parseInt(numberStorage[0]);
+    secondNumber = parseInt(numberStorage[1]);
+
+    let result = operate(lastOperator, firstNumber, secondNumber);
+    
+    divDisplay.textContent = result.toString();
+    numberStorage.pop();
+    numberStorage[0] = result;
+    screenText = '';
+    
+    lastOperator = operator;
+  }
 }
 
 function setButtonEvents(e) {
