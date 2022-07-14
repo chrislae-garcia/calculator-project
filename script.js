@@ -25,7 +25,7 @@ function operate(operator, a, b) {
       return subtraction(a, b);
     case 'x':
       return multiplication(a, b);
-    case '/':
+    case '÷':
       return division(a, b);
   }
 }
@@ -59,7 +59,7 @@ let lastOperator = '';
 
 function storeNumbers(operator, number) {
   
-  if (!number) return;
+  if (!number || !operator) return;
 
   if (!numberStorage[0]) {
     numberStorage[0] = number;
@@ -79,7 +79,12 @@ function storeNumbers(operator, number) {
     numberStorage.pop();
     numberStorage[0] = result;
     screenText = '';
-    
+
+    if (selectedButton == '=') {
+      screenText = result;
+      lastOperator = ''
+      return;
+    }
     lastOperator = operator;
   }
 }
