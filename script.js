@@ -68,8 +68,8 @@ function storeNumbers(operator, number) {
   }
 
   if (numberStorage.length == 2) {
-    firstNumber = parseInt(numberStorage[0]);
-    secondNumber = parseInt(numberStorage[1]);
+    firstNumber = parseFloat(numberStorage[0]);
+    secondNumber = parseFloat(numberStorage[1]);
 
     let result = operate(lastOperator, firstNumber, secondNumber);
     
