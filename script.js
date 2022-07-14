@@ -30,8 +30,7 @@ function operate(operator, a, b) {
   }
 }
 
-let firstNum = 0, secondNum = 0;
-let screenText = "";
+let screenText = '';
 let hasDecimal = false;
 const validInput = ['0', '1', '2', '3', '4', '5', 
                     '6', '7', '8', '9', '.'];
@@ -39,6 +38,8 @@ const validInput = ['0', '1', '2', '3', '4', '5',
 const operators = ['+', '-', 'x', '÷'];
 
 function setOnScreen(selectedButton) {
+
+  if (screenText == '') divDisplay.textContent = '';
 
   if (selectedButton == '.' && hasDecimal){
     return;
@@ -51,16 +52,21 @@ function setOnScreen(selectedButton) {
   divDisplay.textContent = screenText.toString();  
 }
 
-function storeNumbers(operator, screenText) {
-  
-  let lastChar = screenText.substring(screenText.length-1);
 
-  if (!firstNum) {    
-    if (lastChar != '.') {
-      firstNum = parseInt(screenText.slice(0,-1));
-      console.log(firstNum);
-    }
+
+const numberStorage = [];
+let lastOperator = '';
+
+function storeNumbers(operator, number) {
+  
+  if (!numberStorage[0]) {
+    numberStorage[0] = number;
+    lastOperator = operator;  
+    screenText = '';
+  } else if (!numberStorage[1]) {
+    numberStorage[1] = number;
   }
+
 }
 
 function setButtonEvents(e) {
