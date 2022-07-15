@@ -18,16 +18,34 @@ function division(a, b) {
 }
 
 function operate(operator, a, b) {
+
   switch (operator) {
     case '+':
-      return addition(a, b);
+      result = addition(a, b);
+      break;
     case '-':
-      return subtraction(a, b);
+      result = subtraction(a, b);
+      break;
     case 'x':
-      return multiplication(a, b);
+      result = multiplication(a, b);
+      break;
     case '÷':
-      return division(a, b);
+      result = division(a, b);
+      break;
   }
+
+  divDisplay.textContent = result.toString();
+  numberStorage.pop();
+  numberStorage[0] = result;
+  screenText = '';
+
+  if (selectedButton == '=') {
+    screenText = result;
+    lastOperator = ''
+    return;
+  }
+
+  lastOperator = operator;
 }
 
 let screenText = '';
@@ -70,22 +88,12 @@ function storeNumbers(operator, number) {
   }
 
   if (numberStorage.length == 2) {
+
     firstNumber = parseFloat(numberStorage[0]);
     secondNumber = parseFloat(numberStorage[1]);
 
-    let result = operate(lastOperator, firstNumber, secondNumber);
+    operate(lastOperator, firstNumber, secondNumber);
     
-    divDisplay.textContent = result.toString();
-    numberStorage.pop();
-    numberStorage[0] = result;
-    screenText = '';
-
-    if (selectedButton == '=') {
-      screenText = result;
-      lastOperator = ''
-      return;
-    }
-    lastOperator = operator;
   }
 }
 
